@@ -9,8 +9,12 @@ void menu() {
 }
 
 int obtenerNumRandom() {
-    int random = rand() % 501;
+    int random = -500 + rand() % (500-(- 500));
     return random;
+}
+
+void recursiveTriangle(int num) {
+
 }
 
 int* ordenarArray(int* arreglo) {
@@ -33,24 +37,51 @@ int main(){
     do {
         menu();
         cin >> opcion;
+        int numbuscar, contcomparar = 0;
+        int* arr = new int[20];
+        int* arrordenado;
         switch (opcion){
             case 1:
-                int numbuscar;
+                bool seencuentra;
                 cout << endl << "Numero por buscar: ";
                 cin >> numbuscar;
-                int* arr = new int[20];
-               
-
+                
+                //for que llena el arreglo
                 for (int i = 0; i < 20; i++) {
                     arr[i] = obtenerNumRandom();
                 }
-                cout << endl << "Arreglo generado y ordenado: " << endl;
-                int* arrordenado = ordenarArray(arr);
-                for (int i = 0; i < 20; i++){
+                cout << endl << "Arreglo generado y ordenado: " << endl << endl;
+                //puntero que contiene el arreglo ordenado
+                arrordenado = ordenarArray(arr);
+                //for que recorre e imprime el arreglo ordenado, este va vereificando para ver si el numero ingresado esta dentro del arreglo
+                for (int i = 1; i < 20; i++){
                     cout << arrordenado[i] << " ";
+                    if (arrordenado[i] == numbuscar){
+                        seencuentra = true;
+                    }
+                    else {
+                        seencuentra = false;
+                        contcomparar++;
+
+                    }
+                }
+
+                if (seencuentra) {
+                    cout << endl << "El numero " << numbuscar << " SI se encuentra dentro del arreglo";
+                    cout << endl << "Numero de comparaciones: " << contcomparar;
+                }
+                else {
+                    cout << endl << "El numero " << numbuscar << " NO se encuentra dentro del arreglo";
+                    cout << endl << "Numero de comparaciones: " << contcomparar;
                 }
                 
-                break;
+                    break;
+            case 2:
+                int iterationnum;
+                cout << endl << "Ingrese el numero de iteraciones para el proceso: ";
+                cin >> iterationnum;
+                    break;
+
         }
         char respc;
         cout << endl;
