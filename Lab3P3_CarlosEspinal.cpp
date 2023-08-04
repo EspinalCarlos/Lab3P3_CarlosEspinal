@@ -13,8 +13,35 @@ int obtenerNumRandom() {
     return random;
 }
 
-void recursiveTriangle(int num) {
+void recursiveTriangle(int num, int i) {
+    if (i == num) return;
+    int a[50];
+    a[0] = 1;
+    a[i] = 1;
 
+    for (int j = 0; j < i; j++){
+        if (a[j] == 1);
+        else {
+            a[j] = 2;
+        }
+    }
+
+    for (int j = 0; j < i; j++){
+        if (a[j] == NULL) {
+        }
+        else if (a[j] == 1) {
+            cout << "1 ";
+        }
+        else {
+            cout << "2 ";
+            
+
+            
+        }
+
+    }
+    cout << endl;
+    if (i != num) return recursiveTriangle(num, i + 1);
 }
 
 int* ordenarArray(int* arreglo) {
@@ -80,6 +107,9 @@ int main(){
                 int iterationnum;
                 cout << endl << "Ingrese el numero de iteraciones para el proceso: ";
                 cin >> iterationnum;
+                recursiveTriangle(iterationnum, 1);
+                
+
                     break;
 
         }
